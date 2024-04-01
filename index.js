@@ -4,10 +4,14 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
+let posts = {"1": "post 1", "2": "post 2"};
+
 app.use(bodyParser.urlencoded({ extend: true }));
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.render("index.ejs", {
+        posts: posts,
+    });
 })
 
 app.listen(port, () => {

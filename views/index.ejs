@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <viewport content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+</head>
+<body>
+  <h1>Welcome to My Blog</h1>
+  <ul>
+    <% for (const postId in posts) { %>
+      <li>
+        <%= postId %> - <%= posts[postId] %>
+      </li>
+    <% } %>
+  </ul>
+</body>
+</html>
