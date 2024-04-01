@@ -7,10 +7,11 @@
 </head>
 <body>
   <h1>Welcome to My Blog</h1>
+  <a href="/create-post">Create Post</a>
   <ul>
     <% for (const postId in posts) { %>
       <li>
-        <%= postId %> - <%= posts[postId] %>
+        <%= postId %> - <%= posts[postId].title %> - <%= posts[postId].content %>
       </li>
     <% } %>
   </ul>
