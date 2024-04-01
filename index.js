@@ -25,6 +25,21 @@ app.post("/create-post", (req, res) => {
     res.redirect('/')
 })
 
+app.get("/update-post/:postId", (req, res) => {
+    const {postId} = req.params;
+    res.render("update_post.ejs", {
+        postId: postId,
+        posts: posts,
+    });
+})
+
+app.post("/update-post/:postId", (req, res) => {
+    const {postId} = req.params;
+    const {title, content} = req.body;
+    posts[postId] = {title, content};
+    res.redirect('/')
+})
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })

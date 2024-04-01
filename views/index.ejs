@@ -11,7 +11,10 @@
   <ul>
     <% for (const postId in posts) { %>
       <li>
-        <%= postId %> - <%= posts[postId].title %> - <%= posts[postId].content %>
+        <%= postId %>
+        title: <%= posts[postId].title %>
+        content: <%= posts[postId].content %>
+        <a href="/update-post/<%= postId %>">Edit</a>
       </li>
     <% } %>
   </ul>
