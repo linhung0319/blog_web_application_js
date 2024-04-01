@@ -27,6 +27,9 @@ app.post("/create-post", (req, res) => {
 
 app.get("/update-post/:postId", (req, res) => {
     const {postId} = req.params;
+    if (!posts[postId]) {
+        return res.status(404).send("Post not found");
+    }
     res.render("update_post.ejs", {
         postId: postId,
         posts: posts,
@@ -38,6 +41,10 @@ app.post("/update-post/:postId", (req, res) => {
     const {title, content} = req.body;
     posts[postId] = {title, content};
     res.redirect('/')
+})
+
+app.all("*", (req, res) => {
+    res.status(404).send("Page not found");
 })
 
 app.listen(port, () => {
