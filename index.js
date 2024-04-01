@@ -40,7 +40,13 @@ app.post("/update-post/:postId", (req, res) => {
     const {postId} = req.params;
     const {title, content} = req.body;
     posts[postId] = {title, content};
-    res.redirect('/')
+    res.redirect('/');
+})
+
+app.get("/delete-post/:postId", (req, res) => {
+    const {postId} = req.params;
+    delete posts[postId];
+    res.redirect('/');
 })
 
 app.all("*", (req, res) => {
