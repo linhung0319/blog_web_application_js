@@ -4,20 +4,35 @@
   <meta charset="UTF-8">
   <viewport content="width=device-width, initial-scale=1.0">
   <title>My Blog</title>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <h1>Welcome to My Blog</h1>
-  <a href="/create-post">Create Post</a>
-  <ul>
-    <% for (const postId in posts) { %>
-      <li>
-        <%= postId %>
-        title: <%= posts[postId].title %>
-        content: <%= posts[postId].content %>
-        <a href="/update-post/<%= postId %>">Edit</a>
-        <a href="/delete-post/<%= postId %>">Delete</a">
-      </li>
-    <% } %>
-  </ul>
+  <header>
+  </header>
+  <main>
+    <section class="welcome">
+      <h1>Welcome to My Blog</h1>
+      <a href="/create-post" class="btn btn-create">Create Post</a>
+    </section>
+    <section class="posts">
+      <ul>
+        <% for (const postId in posts) { %>
+          <li>
+            <article>
+              <h2><%= posts[postId].title %></h2>
+              <p><%= posts[postId].content %></p>
+            </article>
+            <div>
+              <a href="/update-post/<%= postId %>" class="btn btn-edit">Edit Post</a>
+              <a href="/delete-post/<%= postId %>" class="btn btn-delete">Delete</a>
+            </div>
+          </li>
+        <% } %>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+  </footer>
 </body>
 </html>
