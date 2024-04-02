@@ -7,10 +7,12 @@ const port = 3000;
 let posts = {
     "1": {
         "title": "Protests",
+        "img_url": "https://compote.slate.com/images/d6292e97-d806-480a-adb8-fe1bd44b3b5c.jpg",
         "content": "A great idea for photo essays for students is to shoot the protest to show its power. You can capture people with signs and banners to demonstrate what they are standing for. Besides, you can learn how to capture moving subjects. Use the best example of photo essay and don’t forget about angles, composition, and framing."
     },
     "2":{
         "title": "Local Event",
+        "img_url": "https://i.pinimg.com/originals/aa/5e/36/aa5e361c5d78ca663c8d831bbb5a597f.jpg",
         "content": "Whether you are a resident of a large city or a small town, you can find an opportunity to visit a local event, like a marathon or a festival. This is a nice chance to follow modern photography trends and bring photo essay ideas to life."
     }
 };
@@ -29,9 +31,9 @@ app.get("/create-post", (req, res) => {
 })
 
 app.post("/create-post", (req, res) => {
-    const {title, content} = req.body;
+    const {title, img_url, content} = req.body;
     const postId = Date.now().toString();
-    posts[postId] = {title, content};
+    posts[postId] = {title, img_url, content};
     res.redirect('/')
 })
 
@@ -48,8 +50,8 @@ app.get("/update-post/:postId", (req, res) => {
 
 app.post("/update-post/:postId", (req, res) => {
     const {postId} = req.params;
-    const {title, content} = req.body;
-    posts[postId] = {title, content};
+    const {title, img_url, content} = req.body;
+    posts[postId] = {title, img_url, content};
     res.redirect('/');
 })
 
