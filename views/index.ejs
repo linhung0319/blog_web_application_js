@@ -15,17 +15,20 @@
       </div>
     </section>
     <section class="posts">
-      <ul>
+      <ul class="post-list">
         <% for (const postId in posts) { %>
-          <li>
+          <li class="post-item">
             <article>
-              <h2><%= posts[postId].title %></h2>
-              <img src="<%= posts[postId].img_url %>" alt="<%= posts[postId].title %>">
-              <p><%= posts[postId].content %></p>
+              <h2 class="post-title"><%= posts[postId].title %></h2>
+              <img src="<%= posts[postId].img_url %>" alt="<%= posts[postId].title %>" class="post-img">
+              <p class="post-content"><%= posts[postId].content %></p>
             </article>
-            <div>
-              <a href="/update-post/<%= postId %>" class="btn btn-edit">Edit Post</a>
-              <a href="/delete-post/<%= postId %>" class="btn btn-delete">Delete</a>
+            <div class="post-actions">
+              <p class="post-date">Posted on March 25, 2024</p>
+              <div class="post-buttons">
+                <a href="/update-post/<%= postId %>" class="btn btn-edit">Edit Post</a>
+                <a href="/delete-post/<%= postId %>" class="btn btn-delete">Delete Post</a>
+              </div>
             </div>
           </li>
         <% } %>
