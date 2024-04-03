@@ -1,1 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section {
+    max-width: 800px;
+    width: 100%;
+}
+
+section.welcome {
+    margin: 8rem 0;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+.btn-create {
+    font-size: 1.5rem;
+}
+
+.posts li {
+    list-style-type: none;
+}
+
+.posts img {
+    width: 100%;
+}

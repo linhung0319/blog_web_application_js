@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <header>
-  </header>
   <main>
     <section class="welcome">
       <h1>Welcome to My Blog</h1>
@@ -20,7 +18,7 @@
           <li>
             <article>
               <h2><%= posts[postId].title %></h2>
-              <img src="<%= posts[postId].img_url %>" alt="post image">
+              <img src="<%= posts[postId].img_url %>" alt="<%= posts[postId].title %>">
               <p><%= posts[postId].content %></p>
             </article>
             <div>
@@ -33,7 +31,5 @@
     </section>
   </main>
 
-  <footer>
-  </footer>
 </body>
 </html>
