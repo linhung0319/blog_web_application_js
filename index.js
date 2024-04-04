@@ -1,8 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
+import DOMPurify from 'dompurify';
+import { JSDOM } from "jsdom";
 
 const app = express();
 const port = 3000;
+
+const window = new JSDOM('').window;
+const purify = DOMPurify(window);
 
 let posts = {
     "1": {
@@ -31,8 +36,13 @@ app.get("/create-post", (req, res) => {
 })
 
 app.post("/create-post", (req, res) => {
-    const {title, img_url, content} = req.body;
+    let {title, img_url, content} = req.body;
+    
+    content = purify.sanitize(content);
     const postId = Date.now().toString();
+    console.log(postId)
+    console.log(title)
+    console.log(content);
     posts[postId] = {title, img_url, content};
     res.redirect('/')
 })
@@ -50,7 +60,9 @@ app.get("/update-post/:postId", (req, res) => {
 
 app.post("/update-post/:postId", (req, res) => {
     const {postId} = req.params;
-    const {title, img_url, content} = req.body;
+    let {title, img_url, content} = req.body;
+    content = purify.sanitize(content);
+    
     posts[postId] = {title, img_url, content};
     res.redirect('/');
 })
@@ -68,3 +80,4 @@ app.all("*", (req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })
+

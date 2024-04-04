@@ -23,6 +23,7 @@ body {
 
 section.welcome {
     background-image: url("/assets/img/home-bg.jpg");
+    background-size: cover;
     padding: 10rem 0;
     display: flex;
     justify-content: center;

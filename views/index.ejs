@@ -21,7 +21,7 @@
             <article>
               <h2 class="post-title"><%= posts[postId].title %></h2>
               <img src="<%= posts[postId].img_url %>" alt="<%= posts[postId].title %>" class="post-img">
-              <p class="post-content"><%= posts[postId].content %></p>
+              <div class="post-content"><%- posts[postId].content %></div>
             </article>
             <div class="post-actions">
               <p class="post-date">Posted on March 25, 2024</p>
