@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <viewport content="width=device-width, initial-scale=1.0">
-  <title>Update Post</title>
-</head>
+<%- include("partials/head.ejs", {
+  title: "Update Post",
+  styles: ["base.css", "header.css", "create_post.css"],
+  extraHead: "<script src='/vendor/tinymce/tinymce.min.js'></script>",
+})%>
+
 <body>
-  <h1>Update Post</h1>
-  <form action="/update-post/<%= postId %>", method="post">
-  <label for="title">Title:</label>
-  <input type="text" id="title" name="title" value="<%= posts[postId].title %>" required>
-  <br>
-  <label for "img_url">Image URL:</label>
-  <input type="url" id="img_url" name="img_url" value="<%= posts[postId].img_url %>" required>
-  <br>
-  <label for="content">Content:</label>
-  <textarea id="content" name="content" rows="4" required><%= posts[postId].content %></textarea>
-  <br>
-  <button type="submit">Update</button>
+  <%- include("partials/header.ejs", {
+    title: "Update Post",
+        showCreatePostButton: false
+    })%>
+
+  <%- include("partials/post_form.ejs", {
+    formAction: "/update-post/" + postId,
+    formMethod: "POST",
+    post: post
+  }) %> 
+  
+  <script>
+    tinymce.init({
+      selector: "#content",
+      license_key: "gpl",
+      plugins: "advlist autolink lists link image charmap preview anchor",
+      toolbar: "undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help",
+      setup: function (editor) {
+        editor.on('change', function () {
+            tinymce.triggerSave();
+        })
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+* {
+    /* Reset some default styles */
+    margin: 0;
+    padding: 0;
+
+    /* Box model */
+    box-sizing: border-box;
+
+    /* Visual, ex: clear the underline of a link */
+    text-decoration: none;
+
+    /* Clear the list */
+    list-style: none;
+}
+
+body {
+    /* Typography */
+    font-family: Arial, sans-serif;
+
+    /* Visual */
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}

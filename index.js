@@ -37,12 +37,9 @@ app.get("/create-post", (req, res) => {
 
 app.post("/create-post", (req, res) => {
     let {title, img_url, content} = req.body;
-    
     content = purify.sanitize(content);
     const postId = Date.now().toString();
-    console.log(postId)
-    console.log(title)
-    console.log(content);
+    
     posts[postId] = {title, img_url, content};
     res.redirect('/')
 })
@@ -54,7 +51,7 @@ app.get("/update-post/:postId", (req, res) => {
     }
     res.render("update_post.ejs", {
         postId: postId,
-        posts: posts,
+        post: posts[postId],
     });
 })
 

@@ -1,0 +1,16 @@
+section.page-header {
+    padding: 10rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+div.page-header-text {
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    color: white;
+}

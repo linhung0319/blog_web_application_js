@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <viewport content="width=device-width, initial-scale=1.0">
-  <title>Create New Post</title>
-  <!-- <link rel="stylesheet" href="css/create_post.css"> -->
-  <script src="/vendor/tinymce/tinymce.min.js"></script>
-</head>
+<%- include("partials/head.ejs", {
+    title: "Create Post",
+    styles: ["base.css", "header.css", "create_post.css"],
+    extraHead: "<script src='/vendor/tinymce/tinymce.min.js'></script>",
+})%>
+
 <body>
-  <h1>Create a New Post</h1>
-  <form action="/create-post" method="post">
-    <div class="form-group">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title" required>
-    </div>
-    <div class="form-group">
-      <label for="img_url">Image URL:</label>
-      <input type="url" id="img_url" name="img_url" required>
-    </div>
-    <div class="form-group">
-      <label for="content">Content:</label>
-      <textarea id="content" name="content" required></textarea>
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+  <%- include("partials/header.ejs", {
+    title: "Create Post",
+    showCreatePostButton: false
+  })%>
+
+  <%- include("partials/post_form.ejs", {
+    formAction: "/create-post",
+    formMethod: "POST",
+    post: {title: "", img_url: "", content: ""}
+  }) %>
+  
   <script>
     tinymce.init({
       selector: "#content",
-      
       license_key: "gpl",
       plugins: "advlist autolink lists link image charmap preview anchor",
       toolbar: "undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help",

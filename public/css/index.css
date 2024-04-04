@@ -1,51 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
-/* main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-} */
-
-/* section {
-    max-width: 800px;
-    width: 100%;
-} */
-
-section.welcome {
+section.page-header {
     background-image: url("/assets/img/home-bg.jpg");
     background-size: cover;
-    padding: 10rem 0;
-    display: flex;
-    justify-content: center;
-}
-
-div.welcome-text {
-    max-width: 800px;
-    width: 100%;
-}
-
-h1 {
-    font-size: 5rem;
-    font-weight: 800;
-    color: white;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
 }
 
 .btn-create {
@@ -66,16 +21,11 @@ h1 {
     font-size: 1.125rem;
 }
   
-.btn:hover {
-    opacity: 0.8;
-}
-
 section.posts {
     padding: 5rem 0;
 }
 
 .post-list {
-    list-style-type: none;
     display: flex;
     flex-direction: column;
     align-items: center;
