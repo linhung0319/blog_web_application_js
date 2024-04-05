@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include("partials/head.ejs", {
-  title: "Update Post",
+  title: "Edit Post",
   styles: ["base.css", "header.css", "update_post.css", "post_form.css"],
   extraHead: "<script src='/vendor/tinymce/tinymce.min.js'></script>",
 })%>
 
 <body>
   <%- include("partials/header.ejs", {
-    title: "Update Post",
+    title: "Edit Post",
         showCreatePostButton: false
     })%>
 
-  <%- include("partials/post_form.ejs", {
-    formAction: "/update-post/" + postId,
-    formMethod: "POST",
-    post: post
-  }) %> 
-  
+  <main>
+    <div class="post-form">
+      <%- include("partials/post_form.ejs", {
+        formAction: "/update-post/" + postId,
+        formMethod: "POST",
+        post: post
+      }) %> 
+    </div>
+  </main>
+
   <script>
     tinymce.init({
       selector: "#content",

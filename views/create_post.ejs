@@ -11,13 +11,16 @@
     title: "Create Post",
     showCreatePostButton: false
   })%>
+  <main>
+    <div class="post-form">
+      <%- include("partials/post_form.ejs", {
+        formAction: "/create-post",
+        formMethod: "POST",
+        post: {title: "", img_url: "", content: ""}
+      }) %>
+    </div>
+  </main>
 
-  <%- include("partials/post_form.ejs", {
-    formAction: "/create-post",
-    formMethod: "POST",
-    post: {title: "", img_url: "", content: ""}
-  }) %>
-  
   <script>
     tinymce.init({
       selector: "#content",

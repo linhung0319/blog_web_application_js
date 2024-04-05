@@ -1,8 +1,8 @@
 section.page-header {
     position: relative;
-    padding: 10rem 0;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 800px) 1fr;
+    grid-template-rows: 10rem auto 10rem;
 }
 
 section.page-header::before {
@@ -18,9 +18,19 @@ section.page-header::before {
 }
 
 div.page-header-text {
-    max-width: 800px;
-    width: 100%;
+    /* max-width: 800px;
+    width: 100%; */
     z-index: 2;
+    text-align: center;
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+div.page-header-button {
+    z-index: 2;
+    grid-area: 3 / 2 / 4 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
