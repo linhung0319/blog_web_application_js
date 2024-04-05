@@ -1,12 +1,26 @@
 section.page-header {
+    position: relative;
     padding: 10rem 0;
     display: flex;
     justify-content: center;
 }
 
+section.page-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #212529;
+    opacity: 0.5;
+    z-index: 1;
+}
+
 div.page-header-text {
     max-width: 800px;
     width: 100%;
+    z-index: 2;
 }
 
 h1 {
